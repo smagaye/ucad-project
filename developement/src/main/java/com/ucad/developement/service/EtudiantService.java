@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EtudiantService {
@@ -19,5 +20,9 @@ public class EtudiantService {
 
     public boolean ajout (Etudiant etudiant){
         return etudiantDao.save(etudiant) != null;
+    }
+
+    public Optional<Etudiant> rechercheParId(int id){
+        return etudiantDao.findById(id);
     }
 }
